@@ -11,9 +11,14 @@
     <div id="app">
       <div id="chat_container"></div>
       <form>
-        <textarea name="prompt" rows="1" cols="1" placeholder="Ask question"></textarea>
-        <button type="submit" id="summary" value="summary"><img src="assets/send.svg" alt="summary"/></button>
-        <button type="review" id="review" value="review"><img src="assets/review.svg" alt="review"/></button>
+        <div class="input-group">
+          <textarea name="prompt" rows="1" cols="1" placeholder="Ask question"></textarea>
+          <textarea name="criteria" rows="1" cols="1" placeholder="Criteria Used"></textarea>
+        </div>
+        <div class="button-group">
+          <button type="submit" id="summary" value="summary"><img src="assets/send.svg" alt="summary"/></button>
+          <button type="review" id="review" value="review"><img src="assets/review.svg" alt="review"/></button>
+        </div>
       </form>
     </div>
     <script type="module" src="/script.js"></script>

@@ -120,8 +120,18 @@ form {
   background: #40414F;
 
   display: flex;
-  flex-direction: row;
+  align-items: flex-start;
   gap: 10px;
+}
+
+.input-group, .button-group {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+button-group {
+  margin-left: 10px;
 }
 
 textarea {
@@ -133,8 +143,9 @@ textarea {
   padding: 10px;
   background: transparent;
   border-radius: 5px;
-  border: none;
+  border: 1px solid #fff;
   outline: none;
+  margin-bottom: 10px;
 }
 
 button {
@@ -142,6 +153,7 @@ button {
   border: 0;
   cursor: pointer;
   background: transparent;
+  margin-bottom: 10px;
 }
 
 form img {

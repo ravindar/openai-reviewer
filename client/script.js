@@ -55,6 +55,7 @@ const handleFormSubmit = async (e) => {
   e.preventDefault();
   const formData = new FormData(form);
   const askedQuestion = formData.get('prompt');
+  const criteria = formData.get('criteria');
 
   const submitType = e.submitter.value;
   let call_url = 'http://localhost:5001/summary/';
@@ -81,7 +82,7 @@ const handleFormSubmit = async (e) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({prompt: askedQuestion})
+    body: JSON.stringify({prompt: askedQuestion, model_criteria: criteria})
   });
   clearInterval(loadInterval);
   messageDiv.innerHTML = " ";
