@@ -3,6 +3,7 @@ import user from './assets/user.svg';
 
 const form = document.querySelector('form');
 const chatContainer = document.querySelector('#chat_container');
+let useRemote = false;
 
 let loadInterval;
 
@@ -58,10 +59,14 @@ const handleFormSubmit = async (e) => {
   const criteria = formData.get('criteria');
 
   const submitType = e.submitter.value;
-  let call_url = 'http://localhost:5001/summary/';
+  let serverlocation = 'https://localhost:5001/';
+  if (useRemote) {
+      serverlocation = 'https://zengine-reviewer.onrender.com/';
+  }
 
+  let call_url = serverlocation+'summary/';
   if (submitType === 'review') {
-    call_url = 'http://localhost:5001/smart_review/';
+    call_url = serverlocation+'smart_review/';
   }
   console.log(call_url);
 
@@ -102,5 +107,15 @@ form.addEventListener('submit', handleFormSubmit);
 form.addEventListener("keyup", (e)  => {
   if (e.key === "Enter") {
     handleFormSubmit(e);
+  }
+});
+
+document.getElementById('toggle').addEventListener('change', function() {
+  if(this.checked) {
+    console.log('Toggle is ON');
+    useRemote = true;
+  } else {
+    console.log('Toggle is OFF');
+    useRemote = false;
   }
 });
